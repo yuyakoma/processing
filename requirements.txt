@@ -1,5 +1,2 @@
-# Python Dependencies
-# Add your project dependencies here
-# Example:
-# requests==2.31.0
-# numpy==1.24.3
+# Project dependencies installed via editable package
+-e .

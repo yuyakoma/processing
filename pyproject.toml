@@ -1,0 +1,51 @@
+[project]
+name = "kindle-rag"
+version = "0.1.0"
+description = "End-to-end Kindle OCR to RAG pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "ykkom" }
+]
+dependencies = [
+  "typer[all]>=0.12",
+  "pydantic>=2.6",
+  "opencv-python>=4.12",
+  "pillow>=11.0",
+  "pytesseract>=0.3",
+  "numpy>=1.26",
+  "img2pdf>=0.5",
+  "pypdf>=4.2",
+  "langchain>=0.2",
+  "chromadb>=0.4.24",
+  "sentence-transformers>=3.0",
+  "rich>=13.7",
+  "tenacity>=8.3",
+  "httpx>=0.27",
+  "pyyaml>=6.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "mypy>=1.10"
+]
+
+[project.scripts]
+kindle-pipeline = "kindle_ocr.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.typer]
+color = true
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+strict = true

@@ -3,7 +3,6 @@ venv/
 env/
 ENV/
 .venv/
-.env/
 
 # Python
 __pycache__/
@@ -23,7 +22,9 @@ build/
 *.egg
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/settings.json
+.vscode/*.code-workspace
 .idea/
 *.swp
 *.swo
@@ -32,3 +33,10 @@ build/
 
 # Environment variables
 .env
+
+# Project data directories
+.data/
+data/raw/
+data/interim/
+data/processed/
+chromadb/

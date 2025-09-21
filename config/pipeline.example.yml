@@ -1,0 +1,26 @@
+book_id: my_book
+raw_dir: data/raw/my_book
+interim_dir: data/interim/my_book
+processed_dir: data/processed/my_book
+
+ocr:
+  language: eng+jpn
+  preprocess: true
+  deskew: true
+  binarize: true
+  adaptive_threshold: true
+  vision_model: null  # optional remote model: gpt-4o-mini, claude-3-5-sonnet, etc.
+  vision_model_temperature: 0.1
+  vision_batch_size: 8
+
+pdf:
+  page_size: auto
+  metadata:
+    title: "Sample Book"
+    author: "Author Name"
+
+rag:
+  chunk_size: 800
+  chunk_overlap: 120
+  embedding_model: all-MiniLM-L6-v2
+  vector_store: data/processed/my_book/chroma

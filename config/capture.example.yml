@@ -1,0 +1,25 @@
+# Example configuration for Kindle capture automation
+book:
+  id: my_book
+  title: "Sample Book"
+  author: "Author Name"
+
+capture:
+  output_dir: data/raw/my_book
+  image_format: png
+  dpi: 300
+  include_margin: false
+  # delay (seconds) after triggering page turn before screenshot
+  page_turn_delay: 1.2
+  max_pages: 500
+
+automation:
+  driver: macos_osa
+  kindle_window_title: "Kindle"
+  hotkeys:
+    screenshot: "shift+cmd+4"
+    next_page: "right"
+
+postprocess:
+  trim_margins: true
+  normalize_rotation: true

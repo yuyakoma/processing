@@ -1,0 +1,18 @@
+{
+  "python.defaultInterpreterPath": "${env:HOME}/miniconda3/envs/kindle_ocr/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "terminal.integrated.defaultProfile.osx": "Conda Kindle OCR",
+  "terminal.integrated.profiles.osx": {
+    "Conda Kindle OCR": {
+      "path": "${env:SHELL}",
+      "args": [
+        "-l",
+        "-c",
+        "conda activate kindle_ocr && exec ${env:SHELL}"
+      ]
+    }
+  },
+  "terminal.integrated.env.osx": {
+    "CONDA_DEFAULT_ENV": "kindle_ocr"
+  }
+}

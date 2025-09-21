@@ -1,0 +1,13 @@
+name: kindle_ocr
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - tesseract
+  - poppler
+  - numpy
+  - opencv
+  - pillow
+  - pip:
+      - -e .
