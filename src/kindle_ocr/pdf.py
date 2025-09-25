@@ -8,6 +8,7 @@ from typing import Iterable
 
 import img2pdf
 from pypdf import PdfReader, PdfWriter
+from pypdf.annotations import FreeText
 
 from .config import PDFConfig
 
@@ -38,16 +39,18 @@ def merge_pdf_with_text_layer(image_pdf: Path, ocr_texts: Iterable[str], output_
         )
 
     for page, text in zip(reader.pages, texts):
-        page.add_annotation(
-            {
-                "/Type": "/Annot",
-                "/Subtype": "/FreeText",
-                "/Contents": text,
-                "/Rect": [0, 0, 0, 0],
-                "/F": 4,
-            }
-        )
         writer.add_page(page)
+        if text:
+            annotation = FreeText(
+                text=text,
+                rect=(0, 0, 0, 0),
+                font="Helvetica",
+                font_size="12pt",
+                font_color="000000",
+                border_color=None,
+                background_color=None,
+            )
+            writer.add_annotation(page_number=len(writer.pages) - 1, annotation=annotation)
 
     if metadata:
         writer.add_metadata(metadata)
